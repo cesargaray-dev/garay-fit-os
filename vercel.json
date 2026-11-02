@@ -1,26 +1,30 @@
 {
-  "version": 2,
-  "cleanUrls": true,
-  "routes": [
+  "headers": [
     {
-      "src": "/sw.js",
-      "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate",
-        "service-worker-allowed": "/"
-      },
-      "dest": "/sw.js"
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
     },
     {
-      "src": "/manifest.json",
-      "headers": {
-        "content-type": "application/manifest+json",
-        "cache-control": "public, max-age=0, must-revalidate"
-      },
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/manifest.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ]
 }
