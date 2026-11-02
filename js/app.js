@@ -65,7 +65,7 @@ class GarayFitApp {
   registerServiceWorker() {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then((reg) => {
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
           console.log('Service Worker registered successfully with scope:', reg.scope);
           // Check for newer SW version immediately
           reg.update().catch(() => {});
