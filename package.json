@@ -1,12 +1,8 @@
 {
   "name": "garay-fit-os",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "type": "module",
   "description": "Progressive Web App ultra-premium de hipertrofia muscular Marcy MWM-4965SC y protocolo circadiano 07:30 AM para César Enrique Garay García",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
-  },
   "keywords": [
     "pwa",
     "fitness",
