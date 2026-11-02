@@ -1,0 +1,64 @@
+{
+  "name": "GARAY FIT OS // Marcy Pro & Circadian Edition",
+  "short_name": "GarayFit OS",
+  "description": "Sistema operativo de hipertrofia muscular Marcy MWM-4965SC y protocolo circadiano 07:30 AM para César Garay",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090D16",
+  "theme_color": "#090D16",
+  "orientation": "portrait",
+  "id": "garay-fit-os-marcy-pro",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "🔥 Entrenar Ahora",
+      "short_name": "Entrenar",
+      "description": "Iniciar sesión en la Marcy MWM-4965SC",
+      "url": "./index.html?tab=workout",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "🌅 Mi Día (07:30 AM)",
+      "short_name": "Mi Día",
+      "description": "Línea de tiempo circadiana y hábitos",
+      "url": "./index.html?tab=today",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "🥤 Batido & Nutrición",
+      "short_name": "Nutrición",
+      "description": "Checklist de 5 comidas y batido 750 kcal",
+      "url": "./index.html?tab=nutrition",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "📖 Guía Visual Marcy",
+      "short_name": "Guía Marcy",
+      "description": "Manual interactivo de estaciones y poleas",
+      "url": "./index.html?tab=marcy",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["fitness", "health", "lifestyle", "productivity"],
+  "lang": "es-MX"
+}

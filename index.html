@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>GARAY FIT OS // Marcy Pro & Circadian Edition</title>
+  <meta name="description" content="Sistema Operativo de Hipertrofia Muscular Marcy MWM-4965SC 150lb y Protocolo Circadiano 07:30 AM para César Enrique Garay García." />
+
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#090D16" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GarayFit OS" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'cyber-black': '#090D16',
+            'cyber-card': '#111827',
+            'accent-orange': '#F97316',
+            'accent-cyan': '#06B6D4',
+            'accent-emerald': '#10B981',
+            'accent-purple': '#8B5CF6'
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="bg-[#090D16] text-gray-100 min-h-screen flex flex-col antialiased select-none">
+
+  <!-- Top App Bar -->
+  <header class="sticky top-0 z-30 bg-[#090D16]/85 backdrop-blur-xl border-b border-white/10 px-4 py-3 safe-top">
+    <div class="max-w-3xl lg:max-w-7xl mx-auto flex items-center justify-between">
+      <!-- App Brand -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/30 border border-orange-400/40">
+          <span class="font-black text-white text-base tracking-tighter">GF</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-black text-sm tracking-wider text-white">GARAY FIT</span>
+            <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-orange-500/20 text-orange-400 font-bold border border-orange-500/30">OS</span>
+          </div>
+          <div class="text-[10px] font-mono text-cyan-400/90 leading-none">MARCY MWM-4965SC</div>
+        </div>
+      </div>
+
+      <!-- Action Toggles (Sound, WakeLock, Notifications, PWA) -->
+      <div class="flex items-center gap-1.5">
+        <!-- Sound Synthesizer Toggle -->
+        <button id="btn-sound-toggle" title="Sonido Sintetizado" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-cyan-400 active:scale-95 transition-all">
+          <i data-lucide="volume-2" class="w-4 h-4 text-cyan-400"></i>
+        </button>
+
+        <!-- Wake Lock Screen Toggle -->
+        <button id="btn-wakelock-toggle" title="Mantener pantalla activa" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 active:scale-95 transition-all">
+          <i data-lucide="sun" class="w-4 h-4"></i>
+          <span class="text-[10px] font-mono hidden sm:inline">PANTALLA</span>
+        </button>
+
+        <!-- Notifications Permission Toggle -->
+        <button id="btn-notif-toggle" title="Alertas de Horario" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-orange-400 active:scale-95 transition-all">
+          <i data-lucide="bell" class="w-4 h-4 text-orange-400"></i>
+        </button>
+
+        <!-- Install PWA Button (Hero) -->
+        <button onclick="window.garayApp && window.garayApp.triggerPwaInstall()" title="Instalar App en Teléfono" class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-xs shadow-md shadow-orange-500/20 active:scale-95 transition-all">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span class="text-[11px] font-mono">INSTALAR</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PWA Install Floating Banner -->
+  <aside id="pwa-install-banner" class="hidden px-4 pt-3 max-w-3xl lg:max-w-7xl mx-auto w-full">
+    <div class="glass-card rounded-2xl p-3.5 border border-orange-500/40 bg-gradient-to-r from-orange-950/40 to-slate-900/90 flex items-center justify-between gap-3 shadow-xl shadow-orange-950/50">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 text-lg">
+          📱
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white">Instalar GARAY FIT OS en tu Smartphone</h4>
+          <p class="text-[11px] text-gray-300">Modo pantalla completa, offline y alertas de reloj biológico.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="window.garayApp && window.garayApp.triggerPwaInstall()" class="px-3 py-1.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs shadow-md shadow-orange-500/30 active:scale-95">
+          Instalar
+        </button>
+        <button onclick="document.getElementById('pwa-install-banner').classList.add('hidden')" class="w-7 h-7 rounded-lg bg-white/5 text-gray-400 hover:text-white flex items-center justify-center text-xs">
+          ✕
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Scrollable Content Container -->
+  <main class="flex-1 w-full mx-auto p-4 max-w-3xl lg:max-w-7xl transition-all duration-300" id="main-content">
+    <!-- Rendered dynamically by app.js -->
+  </main>
+
+  <!-- Bottom Navigation Tab Bar (Fixed 5 Tabs) -->
+  <nav class="fixed bottom-0 inset-x-0 z-40 bottom-nav">
+    <div class="max-w-3xl mx-auto flex items-center justify-around px-2 py-2">
+      <!-- Tab 1: Mi Día -->
+      <button class="nav-tab-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-2xl transition-all relative text-orange-400" data-tab="today">
+        <div class="nav-indicator absolute -top-2 w-8 h-1 rounded-full bg-orange-400 shadow-sm shadow-orange-400/50"></div>
+        <i data-lucide="sun" class="w-5 h-5 mb-1"></i>
+        <span class="text-[10px] font-bold tracking-tight">Mi Día</span>
+      </button>
+
+      <!-- Tab 2: Entrenar -->
+      <button class="nav-tab-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-2xl transition-all relative text-gray-400 hover:text-orange-400" data-tab="workout">
+        <div class="nav-indicator absolute -top-2 w-8 h-1 rounded-full bg-orange-400 shadow-sm shadow-orange-400/50 opacity-0 scale-x-0"></div>
+        <i data-lucide="dumbbell" class="w-5 h-5 mb-1"></i>
+        <span class="text-[10px] font-bold tracking-tight">Entrenar</span>
+      </button>
+
+      <!-- Tab 3: Guía Marcy -->
+      <button class="nav-tab-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-2xl transition-all relative text-gray-400 hover:text-cyan-400" data-tab="marcy">
+        <div class="nav-indicator absolute -top-2 w-8 h-1 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50 opacity-0 scale-x-0"></div>
+        <i data-lucide="book-open" class="w-5 h-5 mb-1"></i>
+        <span class="text-[10px] font-bold tracking-tight">Guía Marcy</span>
+      </button>
+
+      <!-- Tab 4: Nutrición -->
+      <button class="nav-tab-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-2xl transition-all relative text-gray-400 hover:text-emerald-400" data-tab="nutrition">
+        <div class="nav-indicator absolute -top-2 w-8 h-1 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/50 opacity-0 scale-x-0"></div>
+        <i data-lucide="utensils" class="w-5 h-5 mb-1"></i>
+        <span class="text-[10px] font-bold tracking-tight">Nutrición</span>
+      </button>
+
+      <!-- Tab 5: Progreso -->
+      <button class="nav-tab-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-2xl transition-all relative text-gray-400 hover:text-purple-400" data-tab="progress">
+        <div class="nav-indicator absolute -top-2 w-8 h-1 rounded-full bg-purple-400 shadow-sm shadow-purple-400/50 opacity-0 scale-x-0"></div>
+        <i data-lucide="trending-up" class="w-5 h-5 mb-1"></i>
+        <span class="text-[10px] font-bold tracking-tight">Progreso</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Toast Notification Container Placeholder -->
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-11/12 max-w-md pointer-events-none"></div>
+
+  <!-- Main Application Logic Module -->
+  <script type="module" src="./js/app.js?v=2.0"></script>
+</body>
+</html>
